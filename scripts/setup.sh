@@ -31,3 +31,6 @@ if [ -z "$WANDB_API_KEY" ]; then
     echo "WANDB_API_KEY not set, disabling wandb..."
     export WANDB_MODE=disabled
 fi
+
+# use volume disk not container disk on runpod
+export HF_HOME=/workspace/hf_cache
