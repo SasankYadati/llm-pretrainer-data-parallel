@@ -65,10 +65,10 @@ if __name__ == '__main__':
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--learning_rate", type=float, default=3e-4)
     parser.add_argument("--seq_len", type=int, default=512)
-    # Global batch: 32 * 16 * 512 = 262K tokens per optimizer step
+    # Global batch: 32 * 8 * 512 = 131K tokens per optimizer step
     # Also holds => 262K = 16 * 8 * 512
-    parser.add_argument("--micro_batch_size", type=int, default=16)
-    parser.add_argument("--gradient_accumulation_steps", type=int, default=32)
+    parser.add_argument("--micro_batch_size", type=int, default=32)
+    parser.add_argument("--gradient_accumulation_steps", type=int, default=8)
     # Batch size warmup: ramp grad_acc_steps from 1 to target over this many tokens (0 = disabled)
     parser.add_argument("--batch_size_warmup_tokens", type=int, default=0)
     parser.add_argument("--dataset_name", type=str, default="HuggingFaceFW/fineweb-edu")
